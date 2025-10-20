@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Informatika Atamalari — Ensiklopediya</title>
+<style>
+  :root{
+    --bg:#070707;
+    --panel:#0f0f0f;
+    --muted:#bdbdbd;
+    --accent:#ffcc00;
+    --glass: rgba(255,255,255,0.03);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; font-family:Inter, Poppins, system-ui, sans-serif; background:linear-gradient(180deg,#050505,#0a0a0a); color:#fff; -webkit-font-smoothing:antialiased}
+  /* NAVBAR */
+  header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,204,0,0.06);z-index:50}
+  .logo{display:flex;align-items:center;gap:12px}
+  .mark{width:46px;height:46;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffbf00);color:#0b0b0b;display:grid;place-items:center;font-weight:800}
+  nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600;opacity:0.95}
+  nav a:hover{color:var(--accent)}
+  /* HERO */
+  .hero{padding-top:120px;padding-bottom:40px;text-align:center}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  h1{font-size:40px;color:var(--accent);margin:6px 0 8px;text-shadow:0 6px 30px rgba(255,204,0,0.06)}
+  p.lead{color:var(--muted);max-width:900px;margin:0 auto 20px}
+  .cta-row{display:flex;gap:12px;justify-content:center;margin-top:20px}
+  .btn{background:var(--accent);color:#000;padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 30px rgba(255,204,0,0.12)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,204,0,0.12)}
+  /* SEARCH */
+  .search-wrap{margin-top:28px;display:flex;justify-content:center}
+  .search{width:100%;max-width:760px;display:flex;gap:10px}
+  .search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:var(--panel);color:#fff;outline:none}
+  .search select{padding:12px;border-radius:10px;background:var(--panel);border:1px solid rgba(255,255,255,0.04);color:#fff}
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin:48px 0}
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));
+    border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+    transition:transform .22s ease, box-shadow .22s;
+    cursor:pointer; min-height:130px; display:flex;flex-direction:column; justify-content:space-between;
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+  .card h3{color:var(--accent);margin:0 0 8px;font-size:18px}
+  .card p{color:var(--muted);margin:0;font-size:14px;line-height:1.4}
+  /* modal / detail */
+  .detail-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:80;padding:24px}
+  .detail{background:#0b0b0b;border-radius:12px;padding:24px;max-width:900px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,0.8);border:1px solid rgba(255,204,0,0.06)}
+  .detail h2{color:var(--accent);margin:0 0 8px}
+  .detail p{color:#ddd;line-height:1.6}
+  .detail .meta{margin-top:14px;color:var(--muted);font-size:13px}
+  .close-btn{position:absolute;right:28px;top:22px;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer}
+  /* ABOUT paragraph */
+  .about-block{background:#0e0e0e;border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);margin-top:30px}
+  .about-block p{color:#ddd;line-height:1.6}
+  /* FOOTER */
+  footer{padding:40px 20px;text-align:center;color:#999;border-top:1px solid rgba(255,204,0,0.04);margin-top:40px}
+  /* responsive */
+  @media (max-width:720px){
+    header{padding:10px}
+    h1{font-size:28px}
+    .grid{gap:12px}
+    .card{min-height:120px}
+  }
+  /* small entrance animation */
+  .fade-in{animation:fadeIn .6s ease both}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="mark">IH</div>
+    <div>
+      <div style="font-weight:800;color:var(--accent);letter-spacing:0.6px">Informatika Hub</div>
+      <div style="font-size:12px;color:var(--muted)">Atamalar va tushunchalar</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#home">Asosiy</a>
+    <a href="#about">Sayt haqida</a>
+    <a href="#terms">Atamalar</a>
+  </nav>
+</header>
+
+<main class="container" id="home">
+  <section class="hero fade-in" style="padding-top:90px">
+    <h1>INFORMATIKA ATAMALARI — ENSIKLOPEDIYA</h1>
+    <p class="lead">Bu sahifa informatika darsi uchun o‘quvchilarga mos ravishda 50+ atama va ularning sodda tushuntirishlarini jamlagan. Qidirish, filtrlash va har bir atamani kengaytirib batafsil o‘qish mumkin.</p>
+    <div class="cta-row">
+      <button class="btn" onclick="document.getElementById('terms').scrollIntoView({behavior:'smooth'})">Atamalarni ko‘rish</button>
+      <button class="btn ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Sayt haqida</button>
+    </div>
+
+    <div class="search-wrap">
+      <div class="search">
+        <input id="searchInput" placeholder="Atama yoki so'zni kiriting (masalan: RAM, IP, Algorithm)..." oninput="filterTerms()" />
+        <select id="letterFilter" onchange="filterTerms()">
+          <option value="all">Barchasi</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="i">I</option>
+          <option value="m">M</option>
+          <option value="n">N</option>
+          <option value="r">R</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="padding-top:30px" class="fade-in">
+    <h2 style="color:var(--accent);margin-bottom:10px">Sayt haqida</h2>
+    <div class="about-block">
+      <p>Bu sayt informatika fanidagi asosiy atamalarni tez va samarali o‘rganish uchun mo‘ljallangan. Har bir atama qisqa, sodda va misollar bilan tushuntirilgan — dars jarayonida yoki uyga vazifa sifatida foydalanish qulay. Saytda interaktiv filtr va qidiruv orqali kerakli atamani tez topish mumkin. Ushbu materiallar o‘qituvchilar va o‘quvchilar uchun tayyorlandi va darslarda umumiy baza sifatida ishlatilishi mumkin.</p>
+    </div>
+  </section>
+
+  <section id="terms" style="padding-top:40px" class="fade-in">
+    <h2 style="color:var(--accent);margin-bottom:18px">Atamalar (50+)</h2>
+    <div class="grid" id="cardsGrid">
+      <!-- Cards inserted by JS -->
+    </div>
+
+    <div class="about-block" style="margin-top:30px">
+      <h3 style="color:var(--accent);margin-bottom:10px">Informatika fani haqida (10 gap)</h3>
+      <p id="informaticsText">
+        Informatika fani axborotni qanday tuzish, saqlash, qayta ishlash va uzatishni o‘rganuvchi ilmiy-amaliy sohadir. U algoritmlar, dasturlash, ma’lumotlar tuzilmalari, operatsion tizimlar va tarmoqlarni o‘z ichiga oladi. Informatika kompyuter va dasturiy ta’minot yordamida real dunyo muammolarini yechishga yo‘naltirilgan. Bu fan dasturchi va tizim muhandislarini tayyorlaydi hamda muammolarni strukturaviy hal qilish ko‘nikmasini beradi. Informatika tarixida Ada Lovelace va Alan Turing kabi olimlar katta hissa qo‘shgan. Dasturlash tili va algoritmlar yordamida murakkab jarayonlarni avtomatlashtirish mumkin. Ma’lumotlar bazalari va tarmoqlar bugungi internet infratuzilmasining asosidir. Sun’iy intellekt va mashinani o‘rganish sohalari informatika doirasida tez rivojlanmoqda. Informatika fanining yordami bilan ko‘plab sohalarda – tibbiyot, iqtisodiyot, ilm-fan va ta’limda samaradorlik oshadi. Ushbu sayt o‘quvchilarga informatikaning asosiy tushunchalarini tez va aniq o‘zlashtirishda yordam beradi.
+      </p>
+    </div>
+  </section>
+</main>
+
+<!-- detail modal -->
+<div class="detail-backdrop" id="detailBackdrop" onclick="closeDetail(event)">
+  <div class="detail" role="dialog" aria-modal="true" id="detailCard" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="hideDetail()">✕</button>
+    <h2 id="detailTitle"></h2>
+    <p id="detailDesc"></p>
+    <div class="meta" id="detailMeta"></div>
+  </div>
+</div>
+
+<footer>
+  <div style="max-width:1000px;margin:0 auto;padding:10px 20px">
+    © 2025 Informatika Hub — Darslik va atamalar. Sahifani yaratdi: <b>sizning ismingiz</b>.
+  </div>
+</footer>
+
+<script>
+  // 50+ terms data
+  const TERMS = [
+    {k:'Algoritm', t:'Muammoni tartib bilan hal qilish uchun ketma-ket bajariladigan amallar toʻplami.'},
+    {k:'Array (Massiv)', t:'Bir turdagi bir nechta qiymatlarni ketma-ket saqlash uchun strukturadir.'},
+    {k:'API', t:'Dasturiy interfeys — dasturlar bir-biri bilan qanday muloqot qilishini belgilaydi.'},
+    {k:'Avtorizatsiya', t:'Foydalanuvchining tizimdagi huquqlarini tekshirish jarayoni.'},
+    {k:'Binary (Ikkilik)', t:'Ikki qiymatli tizim: 0 va 1 bilan ifodalanadi; kompyuterning asosiy tili.'},
+    {k:'Bit', t:'Maʼlumotning eng kichik birligi; 0 yoki 1 qiymatga ega.'},
+    {k:'Bayt', t:'8 bitga teng maʼlumot birligi; oʻlchovlarda ishlatiladi.'},
+    {k:'Cache', t:'Tezkor xotira qismi — tez-tez ishlatiladigan maʼlumotlarni vaqtincha saqlaydi.'},
+    {k:'Compiler', t:'Yuqori darajadagi kodni mashina ko‘rinishiga (assembly yoki bytecode) oʻgirish dasturi.'},
+    {k:'CPU', t:'Markaziy protsessor — hisoblash va buyruqlarni bajarish uchun javob beradi.'},
+    {k:'Cloud Computing', t:'Internet orqali resurslarni (server, saqlash, dastur) onlayn foydalanish.'},
+    {k:'Data Structure', t:'Maʼlumotlarni samarali saqlash va ishlash uchun tashkil etish usullari (list, tree, map).'},
+    {k:'Database', t:'Tuzilgan maʼlumotlar toʻplami va unga ishlov beruvchi tizim (RDBMS, NoSQL).'},
+    {k:'DNS', t:'Domain Name System — domen nomini IP manzilga aylantiradi.'},
+    {k:'Encryption', t:'Maʼlumotni shifrlash orqali maxfiyligini taʼminlash.'},
+    {k:'Firewall', t:'Tarmoq xavfsizligi qurilmasi yoki dasturi — kirish/chiqishni nazorat qiladi.'},
+    {k:'Function', t:'Dasturda takrorlanadigan amallarni bir joyga yigʻib qoʻyish; kirish/chiqish parametrlari bor.'},
+    {k:'HTML', t:'Veb-sahifalarni tuzish uchun belgilash tili (tarkib va tuzilish uchun).'},
+    {k:'HTTP', t:'Veb protokoli — brauzer va server oʻrtasidagi maʼlumot almashinuvi qoidasi.'},
+    {k:'IDE', t:'Integrated Development Environment — dasturlashni osonlashtiruvchi muhit (editor + tool).'},
+    {k:'IoT', t:'Internet of Things — ob’ektlar interneti, qurilmalar tarmogʻi.'},
+    {k:'IP manzil', t:'Tarmoqdagi qurilmaning noyob raqamli manzili.'},
+    {k:'JavaScript', t:'Veb-sahifalarda interaktivlik yaratish uchun ishlatiladigan dasturlash tili.'},
+    {k:'Kernel', t:'Operatsion tizimning markaziy qismi — resurslarni boshqaradi.'},
+    {k:'Latency', t:'Tarmoqqa soʻrov yuborish va javob olish orasidagi kechikish (millisekundlarda).'},
+    {k:'Loop (Tsikl)', t:'Kod ichida takrorlanuvchi blok; for/while kabi tuzilmalar.'},
+    {k:'Machine Learning', t:'Maʼlumotlardan o‘rganib qaror chiqaradigan algoritmlar toʻplami.'},
+    {k:'Middleware', t:'Ilovalar va tizimlar orasidagi vosita qatlam — ulanishni soddalashtiradi.'},
+    {k:'Multithreading', t:'Bir nechta iplar (threads) orqali bir vaqtning oʻzida ishlash.'},
+    {k:'Network (Tarmoq)', t:'Qurilmalar va tizimlarning axborot almashish infratuzilmasi.'},
+    {k:'Node', t:'Tarmoqqa ulangan har qanday qurilma yoki server nuqtasi.'},
+    {k:'Operating System', t:'Kompyuterning asosiy boshqaruv dasturi (Windows, Linux, macOS).'},
+    {k:'Packet', t:'Tarmoq orqali uzatiladigan kichik maʼlumot birligi.'},
+    {k:'Port', t:'Tarmoq xizmatining mantiqiy kirish nuqtasi (masalan, 80 — HTTP).'},
+    {k:'Protocol', t:'Tarmoqlarda maʼlumot almashish qoidalari (TCP, UDP, HTTP).'},
+    {k:'RAM', t:'Operativ (tezkor) xotira — dasturlar ishlash vaqtida maʼlumot saqlaydi.'},
+    {k:'ROM', t:'O‘chirilmaydigan xotira — doimiy saqlash uchun ishlatiladi (firmware).'},
+    {k:'Runtime', t:'Dastur ishga tushgan vaqtdagi muhit va resurslar toʻplami.'},
+    {k:'SaaS', t:'Software as a Service — dastur xizmat sifatida bulutda taqdim etiladi.'},
+    {k:'Script', t:'Qisqa kod toʻplami — tez bajariladigan buyruqlar ketma-ketligi.'},
+    {k:'SDK', t:'Software Development Kit — dasturiy taʼminot yaratish uchun toʻplam.'},
+    {k:'Server', t:'Resurs yoki xizmatlarni taqdim etuvchi kompyuter yoki dastur.'},
+    {k:'SSL/TLS', t:'Internetdagi maʼlumotlarni shifrlab uzatish protokollari.'},
+    {k:'Stack', t:'Texnologiyalar yoki maʼlumotlar strukturasining qatlamlari yoki steki.'},
+    {k:'Thread', t:'Ish jarayonidagi eng kichik bajariluvchi birlik.'},
+    {k:'USB', t:'Universal Serial Bus — periferik qurilmalar uchun port standarti.'},
+    {k:'Virtualization', t:'Bitta fizik mashinada bir nechta virtual muhit yaratish texnologiyasi.'},
+    {k:'VPN', t:'Virtual Private Network — xavfsiz tunneldagi tarmoq ulanishi.'},
+    {k:'XML', t:'Extensible Markup Language — maʼlumotlarni strukturalash uchun belgilash tili.'},
+    {k:'JSON', t:'JavaScript Object Notation — maʼlumotlarni yengil formatda almashish.'},
+    {k:'Git', t:'Versiya nazorati tizimi — kod o‘zgarishlarini boshqaradi.'},
+    {k:'Repository', t:'Loyihaning kod saqlanadigan joyi (masalan, GitHub repo).'},
+    {k:'Version Control', t:'Dastur yoki hujjatlarning o‘zgarish tarixini saqlash tizimi.'},
+    {k:'Bug', t:'Dasturdagi xato yoki kutilmagan xulq.'},
+    {k:'Debugging', t:'Xatoliklarni topish va tuzatish jarayoni.'},
+    {k:'Binary Tree', t:'Ikkilik daraxt — har tugunda maksimal ikki bolasi bo‘lgan daraxt struktura.'},
+    {k:'Hashing', t:'Maʼlumotni kalitga aylantirish — tez qidiruv va saqlash uchun.'}
+  ];
+
+  const grid = document.getElementById('cardsGrid');
+
+  // create cards
+  TERMS.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card fade-in';
+    card.setAttribute('data-key', item.k.toLowerCase());
+    card.innerHTML = `<div><h3>${item.k}</h3><p>${item.t.length>120? item.t.slice(0,120)+'...' : item.t}</p></div><div style="text-align:right;color:var(--muted);font-size:12px">${idx+1}</div>`;
+    card.addEventListener('click', ()=> openDetail(item, idx+1));
+    grid.appendChild(card);
+  });
+
+  // filter
+  function filterTerms(){
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const letter = document.getElementById('letterFilter').value;
+    document.querySelectorAll('.card').forEach(c=>{
+      const key = c.getAttribute('data-key');
+      let show = true;
+      if(q && !key.includes(q)) show = false;
+      if(letter !== 'all' && !key.startsWith(letter)) show = false;
+      c.style.display = show ? 'flex' : 'none';
+    });
+  }
+
+  // detail modal
+  const backdrop = document.getElementById('detailBackdrop');
+  const titleEl = document.getElementById('detailTitle');
+  const descEl = document.getElementById('detailDesc');
+  const metaEl = document.getElementById('detailMeta');
+  function openDetail(item, idx){
+    titleEl.textContent = `${idx}. ${item.k}`;
+    descEl.textContent = item.t + extraExplanation(item.k);
+    metaEl.textContent = `Qisqa tushuntirish • ${item.k}`;
+    backdrop.style.display = 'flex';
+  }
+  function extraExplanation(key){
+    // small contextual extras for some items
+    const k = key.toLowerCase();
+    if(k==='algorithm' || k==='algoritm') return ' Misol: saralash yoki eng qisqa yo‘l topish — algoritmlar orqali amalga oshiriladi.';
+    if(k==='ram') return ' RAM vaqtinchalik xotira, o‘chirilganda undagi maʼlumotlar yo‘qoladi.';
+    if(k==='cpu') return ' CPU sonli operatsiyalarni bajaradi; tezligi clock (GHz) bilan o‘lchanadi.';
+    if(k==='ip manzil' || k==='ip address') return ' IPv4 va IPv6 turlari mavjud; IPv4 32-bit, IPv6 128-bit uzunlikda.';
+    return '';
+  }
+  function hideDetail(){ backdrop.style.display='none'; }
+  function closeDetail(e){ if(e.target===backdrop) hideDetail(); }
+
+  // small keyboard shortcut: / to focus search
+  document.addEventListener('keydown', (e)=>{
+    if(e.key==='/' && document.activeElement.tagName !== 'INPUT'){
+      e.preventDefault();
+      document.getElementById('searchInput').focus();
+    }
+  });
+
+  // entrance: scroll reveal simple
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.style.opacity=1; entry.target.style.transform='none'; observer.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.card').forEach(c=> {
+    c.style.opacity=0; c.style.transform='translateY(10px)';
+    observer.observe(c);
+  });
+
+  // ensure "Atamalar" anchor scroll position accounts for fixed header
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top:y, behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
